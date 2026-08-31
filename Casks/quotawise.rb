@@ -4,7 +4,7 @@ cask "quotawise" do
 
   url "https://github.com/JakeMawson/quotawise/releases/download/v#{version}/QuotaWise-#{version}.zip"
   name "QuotaWise"
-  desc "Local AI usage intelligence for macOS"
+  desc "Local AI usage intelligence"
   homepage "https://github.com/JakeMawson/quotawise"
 
   livecheck do
