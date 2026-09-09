@@ -1,6 +1,6 @@
 cask "launchstation" do
-  version "1.3.7"
-  sha256 "962b76d006345ffcd809efb38d299173ab6b93c6cc922ebdc818b2e5b628963d"
+  version "1.3.8"
+  sha256 "d3be67898a60a96c5cf1766702b90d6e161fa233da42b4a3e0555158c629585e"
 
   url "https://github.com/JakeMawson/launchstation/releases/download/v#{version}/Launch-Station-#{version}.zip"
   name "Launch Station"
@@ -17,12 +17,12 @@ cask "launchstation" do
   app "Launch Station.app"
   binary "#{appdir}/Launch Station.app/Contents/Resources/bin/launch"
 
-  postflight do
+  postflight_steps do
     system_command "#{appdir}/Launch Station.app/Contents/Resources/bin/configure-launch-station",
                    args: ["--install", "#{appdir}/Launch Station.app"]
   end
 
-  uninstall_preflight do
+  uninstall_preflight_steps do
     system_command "#{appdir}/Launch Station.app/Contents/Resources/bin/configure-launch-station",
                    args: ["--uninstall"]
   end
