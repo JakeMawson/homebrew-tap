@@ -17,12 +17,12 @@ cask "launchstation" do
   app "Launch Station.app"
   binary "#{appdir}/Launch Station.app/Contents/Resources/bin/launch"
 
-  postflight_steps do
+  postflight do
     system_command "#{appdir}/Launch Station.app/Contents/Resources/bin/configure-launch-station",
                    args: ["--install", "#{appdir}/Launch Station.app"]
   end
 
-  uninstall_preflight_steps do
+  uninstall_preflight do
     system_command "#{appdir}/Launch Station.app/Contents/Resources/bin/configure-launch-station",
                    args: ["--uninstall"]
   end
