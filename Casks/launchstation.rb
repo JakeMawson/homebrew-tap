@@ -18,13 +18,20 @@ cask "launchstation" do
   binary "#{appdir}/Launch Station.app/Contents/Resources/bin/launch"
 
   postflight_steps do
-    system_command "#{appdir}/Launch Station.app/Contents/Resources/bin/configure-launch-station",
-                   args: ["--install", "#{appdir}/Launch Station.app"]
+    run "Launch Station.app/Contents/Resources/bin/configure-launch-station",
+        args: ["--install", "{{appdir}}/Launch Station.app"],
+        base: :appdir,
+        writable_paths: ["bin", "Library/Application Support/Launch Station",
+                         "Library/LaunchAgents", "Library/Logs/Launch Station"],
+        writable_base: :home
   end
 
   uninstall_preflight_steps do
-    system_command "#{appdir}/Launch Station.app/Contents/Resources/bin/configure-launch-station",
-                   args: ["--uninstall"]
+    run "Launch Station.app/Contents/Resources/bin/configure-launch-station",
+        args: ["--uninstall"],
+        base: :appdir,
+        writable_paths: ["Library/LaunchAgents"],
+        writable_base: :home
   end
 
   caveats <<~EOS
