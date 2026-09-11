@@ -1,6 +1,6 @@
 cask "launchstation" do
-  version "1.3.11"
-  sha256 "ff6444b5a864910d2e11bf53cd581a04f04aff488e8dbeb9014924c83b4e3009"
+  version "1.3.12"
+  sha256 "2ee55c2d4f23188bb8c8ab9007626b65ccd464974c693c6fb4b49f0d28cc18b2"
 
   url "https://github.com/JakeMawson/launchstation/releases/download/v#{version}/Launch-Station-#{version}.zip"
   name "Launch Station"
@@ -17,15 +17,16 @@ cask "launchstation" do
   app "Launch Station.app"
   binary "#{appdir}/Launch Station.app/Contents/Resources/bin/launch"
 
-  postflight do
-    system_command "#{appdir}/Launch Station.app/Contents/Resources/bin/configure-launch-station",
-                   args: ["--install", "#{appdir}/Launch Station.app"]
+  postflight_steps do
+    run "/bin/zsh",
+        args: ["{{appdir}}/Launch Station.app/Contents/Resources/bin/configure-launch-station", "--install", "{{appdir}}/Launch Station.app"],
+        env: { "LAUNCH_STATION_SETUP_MODE" => "stage-only" },
+        writable_paths: ["Library/Application Support/Launch Station",
+                         "Library/LaunchAgents", "Library/Logs/Launch Station"],
+        writable_base: :home
   end
 
-  uninstall_preflight do
-    system_command "#{appdir}/Launch Station.app/Contents/Resources/bin/configure-launch-station",
-                   args: ["--uninstall"]
-  end
+  uninstall launchctl: "com.jakemawson.launchstation.service"
 
   caveats <<~EOS
     Launch Station keeps your launcher catalog and session history in:
