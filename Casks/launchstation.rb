@@ -1,6 +1,6 @@
 cask "launchstation" do
-  version "1.3.12"
-  sha256 "2ee55c2d4f23188bb8c8ab9007626b65ccd464974c693c6fb4b49f0d28cc18b2"
+  version "1.3.13"
+  sha256 "8e1834e2fc366c7473df6b597dd4cd166e2482b44491aa7f3e00b01b579bc34b"
 
   url "https://github.com/JakeMawson/launchstation/releases/download/v#{version}/Launch-Station-#{version}.zip"
   name "Launch Station"
@@ -19,11 +19,12 @@ cask "launchstation" do
 
   postflight_steps do
     run "/bin/zsh",
-        args: ["{{appdir}}/Launch Station.app/Contents/Resources/bin/configure-launch-station", "--install", "{{appdir}}/Launch Station.app"],
-        env: { "LAUNCH_STATION_SETUP_MODE" => "stage-only" },
+        args:           ["{{appdir}}/Launch Station.app/Contents/Resources/bin/configure-launch-station", "--install",
+                         "{{appdir}}/Launch Station.app"],
+        env:            { "LAUNCH_STATION_SETUP_MODE" => "stage-only" },
         writable_paths: ["Library/Application Support/Launch Station",
                          "Library/LaunchAgents", "Library/Logs/Launch Station"],
-        writable_base: :home
+        writable_base:  :home
   end
 
   uninstall launchctl: "com.jakemawson.launchstation.service"
