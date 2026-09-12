@@ -1,6 +1,6 @@
 cask "launchstation" do
-  version "1.3.16"
-  sha256 "831e00bba726871754f7ac1920977176fd8ff9b588d635c0716b1777e64b5b96"
+  version "1.3.17"
+  sha256 "2d361cf3df0c41ac7f68f647f9fcebd6393368af21b974fc9eebd2ec6c521bc7"
 
   url "https://github.com/JakeMawson/launchstation/releases/download/v#{version}/Launch-Station-#{version}.zip"
   name "Launch Station"
