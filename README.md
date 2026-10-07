@@ -20,3 +20,16 @@ macOS menu-bar app for local AI usage intelligence:
 ```sh
 brew install JakeMawson/tap/quotawise
 ```
+
+## Codex Task Manager beta
+
+Install [Codex Task Manager](https://stacksimpl.web.app/codex-task-manager/),
+a signed and notarized macOS menu-bar companion for your Codex chats:
+
+```sh
+brew install --cask JakeMawson/tap/codex-task-manager
+```
+
+Requires macOS 15 or later and supports Apple silicon and Intel. This is an early
+beta; startup and task-status behavior are still being refined. Keep Codex as the
+source of truth for your tasks.
