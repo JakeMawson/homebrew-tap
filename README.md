@@ -31,5 +31,5 @@ brew install --cask JakeMawson/tap/codex-task-manager
 ```
 
 Requires macOS 15 or later and supports Apple silicon and Intel. This is an early
-beta; startup and task-status behavior are still being refined. Keep Codex as the
+beta; task-status behavior is still being refined. Keep Codex as the
 source of truth for your tasks.
