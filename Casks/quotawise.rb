@@ -1,6 +1,6 @@
 cask "quotawise" do
-  version "1.1.4"
-  sha256 "08e8be29d50200c9b5c785838f33a94ad04e984f9dc18de94caef39e74ad60e0"
+  version "1.1.5"
+  sha256 "03c01d4179519b86e7c2a0cad440e7fe59f85ab52c4f482a3c61203e4695242c"
 
   url "https://github.com/JakeMawson/quotawise/releases/download/v#{version}/QuotaWise-#{version}.zip"
   name "QuotaWise"
