@@ -12,7 +12,7 @@ cask "codex-task-manager" do
   preflight_steps do
     run "/usr/bin/codesign", args: ["--verify", "--deep", "--strict", "-R", '=anchor apple generic and identifier "com.jakemawson.codex-task-manager.launcher" and certificate leaf[subject.OU] = "6RWK4446NQ"', "{{staged_path}}/Codex Task Manager.app"]
     run "/usr/bin/codesign", args: ["--verify", "--strict", "-R", '=anchor apple generic and identifier "com.jakemawson.codex-task-manager.menuagent" and certificate leaf[subject.OU] = "6RWK4446NQ"', "{{staged_path}}/Codex Task Manager.app/Contents/Library/LoginItems/CodexTaskManagerMenuAgent.app"]
-    run "/usr/sbin/spctl", args: ["--assess", "--type", "execute", "{{staged_path}}/Codex Task Manager.app"], network_access: true
+    run "/usr/bin/xcrun", args: ["stapler", "validate", "{{staged_path}}/Codex Task Manager.app"], network_access: true
   end
 
   app "Codex Task Manager.app"
