@@ -1,6 +1,6 @@
 cask "codex-task-manager" do
-  version "0.2.1"
-  sha256 "c383cfee0fcf9499c1dfb0715a9a1a0b721bb583d6247c5a502d8a9004632208"
+  version "0.2.2"
+  sha256 "14253286211fd6687c7eb9ba4feabff6f1defa2d327b99dc6958f643521f5e7e"
 
   url "https://github.com/JakeMawson/codex-task-manager/releases/download/v#{version}/Codex-Task-Manager-#{version}.zip"
   name "Codex Task Manager"
